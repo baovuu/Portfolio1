@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Bao Vuu | Photography</title>
+        <link href='https://fonts.googleapis.com/css?family=Changa+One:400,400italic|Open+Sans:400,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+	
+	<body>
+		<header>
+			<a href="street.html" id="logo">
+				<h1>Bao Vuu</h1>
+				<h2>Photography</h2>
+			</a>
+			<nav>
+				<ul>
+					<li><a href="street.html" class="selected">The Street</a></li>
+					<li><a href="portrait.html">Portrait</a></li>
+					<li><a href="landscape.html">Landscape</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+        
+		<div id="wrapper">
+			<section>
+                <script>
+                    pics = new Array (
+                        "img/1.jpg",
+                        "img/2.jpg",
+                        "img/3.jpg",
+                        "img/4.jpg",
+                        "img/5.jpg",
+                        "img/6.jpg"
+                    );
+                    count = pics.length;
+                    i = 0;
+                    var z = setInterval('rotate()',5000)
+                </script>
+				<div id="gallery">
+                    <img src="img/1.jpg" alt="" id="slider" /><br/><br/>
+                    <script>
+                        while ( i < count) {
+                            document.write("<a href=\"#\" onClick = \"clearInterval(z); document.getElementById('slider').src = pics[" + i + "]; document.getElementById('restart').setAttribute('class','visible'); return false;\"><img src=\"" + pics[i] + "\" class=\"thump\"></a>");
+                            i++;
+                        }
+                        i = 1;
+                    </script>
+                    <br/><br/>
+                    <button id = "restart" onClick="z = setInterval('rotate()',5000); document.getElementById('restart').setAttribute('class','hidden');" class="hidden"> Restart Slideshow</button>
+                </div>
+                <script>
+                    rotate();
+                    function rotate() {
+                        document.getElementById('slider').src = pics[i];
+                        i++;
+                            if( i >= count) {
+                                i = 0;
+                            }
+                        
+                    }
+                </script>
+			</section>
+			
+			<footer>
+				<a href="https://twitter.com/bnvuu"><img src="img/twitter-wrap.png" alt="Twitter Logo" class="social-icon"></a>
+				<a href="https://www.facebook.com/bnvuu"><img src="img/facebook-wrap.png" alt="Facebook Logo" class="social-icon"></a>
+             
+				<p>&copy; 2017 Bao Vuu.</p>
+			</footer>
+		</div>
+	</body>
+</html>
